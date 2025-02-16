@@ -1,64 +1,53 @@
 # Documentación de la API del Blog
 
-## Descripción
-
 Este proyecto es una API RESTful de un blog, realizado en Laravel y utiliza MySQL para almacenar los datos.
 
-## Requisitos previos
+- Requisitos previos
 
 Para ejecutar este proyecto, necesitas tener:
 
-- **PHP 8** o superior
-- **Composer** (gestor de dependencias para PHP).
-- **MySQL** para la base de datos.
-- **Laravel 8+** o posterior.
-- **Acceso a la API del Blog** (puede ser local o remota).
+- PHP 8 o superior.
+- Composer (gestor de dependencias para PHP).
+- MySQL para la base de datos.
+- Laravel 8+ o posterior.
+- Acceso a la API del Blog.
 
-## Instrucciones de instalación y uso
 
-### Paso 1: Clonar el proyecto
+- Descarga el proyecto o clónalo
 
-1. Clona este repositorio en tu máquina local utilizando Git:
+Clona este repositorio en tu máquina local utilizando Git y ábrelo en tu entorno de desarrollo:
    
 ```bash
-git clone https://github.com/PinkBlure/proyecto_blog_apple.git
+git clone https://github.com/kevarm/Blog
 ```
 
-2. Entra en el directorio del proyecto:
+- Instalar dependencias
 
-```bash
-cd tu-repositorio
-```
+Necesitarás Composer. Si no lo tienes, puedes instalarlo desde [aquí](https://getcomposer.org/).
 
-### Paso 2: Instalar dependencias
-
-1. Asegúrate de tener Composer instalado. Si no lo tienes, puedes instalarlo desde [aquí](https://getcomposer.org/).
-
-2. Instala las dependencias del proyecto ejecutando el siguiente comando en la raíz del proyecto:
+Una vez descargado, escribe:
 
 ```bash
 composer install
 ```
 
-### Paso 3: Configuración de la base de datos
+- Conexión con tu base de datos
 
-1. Se le pasa al profesor una copia de la base de datos usada.
-
-2. Ejecuta el siguiente comando para generar la clave de la aplicación en Laravel:
+Una vez creada la base de datos del proyecto, ejecuta el siguiente comando para generar la clave de la aplicación en Laravel:
 
 ```bash
 php artisan key:generate
 ```
 
-3. Ejecuta las migraciones para crear las tablas en la base de datos:
+Ejecuta las migraciones para crear las tablas en la base de datos:
 
 ```bash
 php artisan migrate
 ```
 
-### Paso 6: Ejecutar el servidor
+- Arrancar el servidor
 
-Ahora, puedes ejecutar el servidor de desarrollo de Laravel:
+Escribe el siguiente comando:
 
 ```bash
 php artisan serve
@@ -66,142 +55,104 @@ php artisan serve
 
 Esto hará que la API esté disponible en http://localhost:8000.
 
-### Paso 7: Prueba la API
+- Prueba la API
 
 Abre tu navegador o un cliente como Postman y prueba las rutas de la API que están documentadas más abajo.
 
-## Rutas Implementadas
 
 A continuación se describen las rutas disponibles para interactuar con la API del blog:
 
 ---
 
-### 1. Obtener todos los posts
-**Ruta:** `/api/posts`  
-**Método:** `GET`  
-**Descripción:** Obtiene todos los posts publicados en el blog.
+1. Obtener todos los posts
+Ruta: `/api/posts`  
+Método:** `GET`  
+Descripción: Obtiene todos los posts publicados en el blog.
 
-![Mi imagen](./images/prueba_1.png)
-
----
-
-### 2. Obtener un post por ID
-**Ruta:** `/api/posts/{id}`  
-**Método:** `GET`  
-**Descripción:** Obtiene los detalles de un post específico utilizando su ID.
-
-![Mi imagen](./images/prueba_2.png)
+![Mi imagen](/public/img/1.png)
 
 ---
 
-### 3. Crear un nuevo post
-**Ruta:** `/api/posts`  
-**Método:** `POST`  
-**Descripción:** Crea un nuevo post. Requiere los parámetros `title` y `body` en el cuerpo de la solicitud.
+2. Obtener un post por ID
+Ruta: `/api/posts/{id}`  
+Método: `GET`  
+Descripción: Obtiene los detalles de un post específico utilizando su ID.
 
-**Parámetros requeridos:**
+![Mi imagen](/public/img/2.png)
+
+---
+
+3. Crear un nuevo post
+Ruta: `/api/posts`  
+Método: `POST`  
+Descripción: Crea un nuevo post. Requiere los parámetros `title` y `body` en el cuerpo de la solicitud.
+
+  Parámetros requeridos:
 - `title`: El título del post.
 - `body`: El contenido del post.
 
-![Mi imagen](./images/prueba_3.png)
+![Mi imagen](/public/img/3.png)
 
 ---
 
-### 4. Obtener posts por tipo
-**Ruta:** `/api/posts/type/{type}`  
-**Método:** `GET`  
-**Descripción:** Obtiene los posts filtrados por tipo.
+4. Prueba de paginación
 
-![Mi imagen](./images/prueba_4.png)
-
-**Prueba de paginación:**
-
-![Mi imagen](./images/prueba_5.png)
+![Mi imagen](/public/img/4.png)
 
 ---
 
-### 5. Actualizar un post
-**Ruta:** `/api/posts/{id}`  
-**Método:** `PUT`  
-**Descripción:** Actualiza un post existente. Requiere los campos `title`, `slug`, `body` y `type` en el cuerpo de la solicitud.
+5. Actualizar un post
+Ruta: `/api/posts/{id}`  
+Método:`PUT`  
+Descripción: Actualiza un post existente. Requiere los campos `title`, `slug` y `body` en el cuerpo de la solicitud.
 
-**Parámetros requeridos:**
+  Parámetros requeridos:*
 - `title`: El nuevo título del post.
 - `slug`: El nuevo slug del post.
 - `body`: El contenido actualizado del post.
-- `type`: El tipo de post.
 
-![Mi imagen](./images/prueba_6.png)
-
----
-
-### 6. Eliminar un post
-**Ruta:** `/api/posts/{id}`  
-**Método:** `DELETE`  
-**Descripción:** Elimina un post especificado por su ID.
-
-![Mi imagen](./images/prueba_7.png)
-
+![Mi imagen](/public/img/5.png)
 
 ---
 
-Estas son las rutas principales de la API para interactuar con el blog. Cada ruta está diseñada para facilitar la gestión de los posts.
+6. Eliminar un post
+Ruta: `/api/posts/{id}`  
+Método: `DELETE`  
+Descripción: Elimina un post especificado por su ID.
 
-## Capturas de Pantalla
+![Mi imagen](/public/img/7.png)
 
-### Pantalla principal
-![Mi imagen](./images/captura_1.png)
+---
 
-### Paginado de la página principal
-![Mi imagen](./images/captura_2.png)
+- Pantalla principal
+![Mi imagen](/public/img/index.png)
 
-### Filtro de posts por tipo
-![Mi imagen](./images/captura_3.png)
+- Documentación de la API REST
+![Mi imagen](/public/img/docu.png)
 
-### Paginado del filtro de posts por tipo
-![Mi imagen](./images/captura_4.png)
+- Registro
+![Mi imagen](/public/img/register.png)
 
-### Documentación de la API REST
-![Mi imagen](./images/captura_5.png)
+- Inicio de sesión
+![Mi imagen](/public/img/login.png)
 
-### Registro
-![Mi imagen](./images/captura_6.png)
+- Dashboard de usuario logeado
+![Mi imagen](/public/img/dashboard.png)
 
-### Inicio de sesión
-![Mi imagen](./images/captura_7.png)
+- Crear nuevo post
+![Mi imagen](/public/img/create.png)
 
-### Dashboard de usuario logeado
-![Mi imagen](./images/captura_8.png)
+- Listado de posts
+![Mi imagen](/public/img/list.png)
 
-### Crear nuevo post
-![Mi imagen](./images/captura_9.png)
+- Leer más
+![Mi imagen](/public/img/lerr.png)
 
-### Listado de posts con botones de modificaciones
-![Mi imagen](./images/captura_10.png)
+- Editar
+![Mi imagen](/public/img/edit.png)
 
-### Detalle de la noticia
-![Mi imagen](./images/captura_11.png)
-
-### Editar un post
-![Mi imagen](./images/captura_12.png)
-
-### Aviso pop-up al eliminar un posts
-![Mi imagen](./images/captura_13.png)
-
-## Credenciales de Prueba
+- Credenciales de Prueba
 
 Credenciales de autenticación:
-Email: davidperez@apple.us
-Contraseña: 12341234
-
-## Contribución
-Si deseas contribuir a este proyecto, por favor sigue estos pasos:
-
-1. Haz un fork del repositorio.
-2. Crea una nueva rama para tu función o corrección (git checkout -b feature/nueva-funcion).
-3. Haz commit de tus cambios (git commit -am 'Añadir nueva función').
-4. Envía tu rama al repositorio remoto (git push origin feature/nueva-funcion).
-5. Abre un Pull Request.
-
-## Licencia
-Este proyecto está licenciado bajo la MIT License. Ver el archivo LICENSE para más detalles.
+Email: kevin@kevin.es
+Contraseña: 123123
